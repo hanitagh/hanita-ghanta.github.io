@@ -235,30 +235,43 @@
 
   /* PHOTO */
   .photo-frame {
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     border: 2px solid var(--gold);
     overflow: hidden;
     margin: 0 auto 1.5rem;
-    background: var(--paper);
+    background: var(--cream);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    cursor: pointer;
   }
 
   .photo-frame img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: none;
   }
 
-  .photo-frame img.loaded { display: block; }
-
   .photo-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .photo-placeholder svg { color: var(--rule); }
+
+  .photo-placeholder span {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rule);
+    text-align: center;
+    line-height: 1.4;
+  }  .photo-placeholder {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -738,6 +751,88 @@
     .cert-grid { grid-template-columns: 1fr 1fr; }
   }
 
+  /* INTERESTS */
+  #interests { background: var(--cream); }
+
+  .interests-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .interests-col-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .interest-item {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    margin-bottom: 1.8rem;
+  }
+
+  .interest-icon {
+    font-size: 1.4rem;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .interest-text strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    color: var(--ink);
+  }
+
+  .interest-text p {
+    font-size: 0.85rem;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+
+  .club-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .club-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem 1.2rem;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--gold);
+  }
+
+  .club-school {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.2rem;
+  }
+
+  .club-name {
+    font-size: 0.88rem;
+    color: var(--ink);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
   #contact {
     background: var(--ink);
     color: var(--paper);
@@ -850,6 +945,7 @@
     <li><a href="#skills">Skills</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#interests">Interests</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="CV.pdf" download class="nav-download">↓ Resume</a></li>
   </ul>
@@ -877,16 +973,13 @@
 
   <div class="hero-right">
     <div class="hero-card">
-      <input type="file" id="photo-input" accept="image/*">
-      <label for="photo-input">
-        <div class="photo-frame" title="Click to upload your photo">
-          <img id="profile-photo" src="" alt="Hanita Ghanta">
-          <div class="photo-placeholder" id="photo-placeholder">
-            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-            <span>Upload<br>Photo</span>
-          </div>
+      <div class="photo-frame">
+        <img src="photo.jpg" alt="Hanita Ghanta" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="photo-placeholder" style="display:none;">
+          <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <span>Add photo.jpg<br>to repo</span>
         </div>
-      </label>
+      </div>
       <div class="stat-grid">
         <div class="stat-item">
           <div class="stat-num">2<span>+</span></div>
@@ -1386,15 +1479,102 @@
   </div>
 </section>
 
+</section>
+
+<!-- INTERESTS -->
+<section id="interests">
+  <div class="section-header reveal">
+    <span class="section-num">06</span>
+    <h2 class="section-title">Beyond the Numbers</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="interests-grid">
+    <div class="reveal">
+      <div class="interests-col-title">Hobbies & Passions</div>
+
+      <div class="interest-item">
+        <div class="interest-icon">✈️</div>
+        <div class="interest-text">
+          <strong>Travel</strong>
+          <p>Always planning the next adventure — Japan and Europe are close to my heart. Travelling sharpens the way I think about global markets and economic diversity.</p>
+        </div>
+      </div>
+
+      <div class="interest-item">
+        <div class="interest-icon">🎂</div>
+        <div class="interest-text">
+          <strong>Baking & Cooking</strong>
+          <p>I love experimenting in the kitchen — baking especially. Give me a new recipe and I'll try it. There's something satisfying about the precision of it, not unlike financial modelling.</p>
+        </div>
+      </div>
+
+      <div class="interest-item">
+        <div class="interest-icon">🏊</div>
+        <div class="interest-text">
+          <strong>Fitness</strong>
+          <p>Gym, yoga, and swimming keep me grounded. Movement is how I reset — especially useful when you're deep in a model at 11pm.</p>
+        </div>
+      </div>
+
+      <div class="interest-item">
+        <div class="interest-icon">🎨</div>
+        <div class="interest-text">
+          <strong>Art, Design & Music</strong>
+          <p>I have a genuine eye for aesthetics — I appreciate good design in everything from data visualisations to everyday spaces. Music is always in the background, whatever the mood calls for.</p>
+        </div>
+      </div>
+
+      <div class="interest-item">
+        <div class="interest-icon">👗</div>
+        <div class="interest-text">
+          <strong>Fashion & Style</strong>
+          <p>Personal style is its own kind of creative expression. I enjoy putting together looks that feel intentional — whether it's a boardroom or a weekend.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="interests-col-title">Clubs & Community</div>
+      <ul class="club-list">
+        <li class="club-item">
+          <div>
+            <div class="club-school">University at Buffalo</div>
+            <div class="club-name">Finance & Management Clubs — engaged in investment discussions, case workshops, and networking with finance professionals</div>
+          </div>
+        </li>
+        <li class="club-item">
+          <div>
+            <div class="club-school">University at Buffalo</div>
+            <div class="club-name">Graduate Indian Students Association (GISA) & South Asian Students Association (SASA) — connected with the South Asian community, participated in cultural events and community initiatives</div>
+          </div>
+        </li>
+        <li class="club-item">
+          <div>
+            <div class="club-school">University at Buffalo</div>
+            <div class="club-name">Women in Business / Finance — building networks and advocating for women pursuing careers in finance</div>
+          </div>
+        </li>
+        <li class="club-item">
+          <div>
+            <div class="club-school">Manipal Academy</div>
+            <div class="club-name">Cultural & Management Clubs — took on responsibilities in event coordination, community building, and creative projects</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <section id="contact">
   <p class="contact-eyebrow">Based in Chicago, IL · Open to Opportunities Across the USA</p>
   <h2 class="contact-heading">Let's work<br><em>together.</em></h2>
   <p class="contact-sub">
-    Actively seeking financial modelling, risk, and FP&A roles across the United States. 
+    Actively seeking financial modelling, risk, and FP&A roles across the United States.
     Ready to contribute, learn fast, and make a real impact. Let's connect.
   </p>
   <div class="contact-links">
-    <a href="/cdn-cgi/l/email-protection#dbb3bab5b2afbabcb3bab5afba9bbcb6bab2b7f5b8b4b6" class="contact-link">Email Me</a>
+    <a href="mailto:hanitaghanta@gmail.com" class="contact-link">Email Me</a>
     <a href="https://www.linkedin.com/in/hanita-ghanta" target="_blank" class="contact-link">LinkedIn</a>
     <a href="tel:+13129959604" class="contact-link">+1 (312) 995-9604</a>
   </div>
@@ -1405,7 +1585,7 @@
   <p>Financial Analyst · Chicago, IL · Open to Opportunities Across the USA</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -1416,17 +1596,6 @@
     });
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
-
-  // Photo upload
-  const photoInput = document.getElementById('photo-input');
-  const profilePhoto = document.getElementById('profile-photo');
-  const photoPlaceholder = document.getElementById('photo-placeholder');
-
-  if (photoInput) {
-    photoInput.addEventListener('change', (e) => {
-      const file = e.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = (ev) => {
-        profilePhoto.src = ev.target.result;
-        profilePhoto.c
+</script>
+</body>
+</html>
